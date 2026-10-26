@@ -1,0 +1,699 @@
+# CAHIER DES CHARGES
+# NutriAI
+## Système intelligent de suivi nutritionnel
+
+**Projet de fin d'études**
+
+**Technologies utilisées :** Angular, Flutter, Spring Boot, MySQL et Python.
+
+---
+
+# 1. Présentation générale du projet
+
+## 1.1. Intitulé du projet
+
+Conception et développement d'une application web et mobile intelligente de suivi nutritionnel intégrant l'intelligence artificielle.
+
+Nom du projet : NutriAI.
+
+## 1.2. Contexte du projet
+
+Le suivi nutritionnel constitue une activité essentielle dans l'accompagnement des patients par les nutritionnistes. Il nécessite une communication régulière entre le professionnel et ses patients afin de contrôler les habitudes alimentaires, d'évaluer les progrès réalisés et d'adapter les programmes nutritionnels selon les besoins de chacun.
+
+Cependant, le suivi quotidien peut représenter une charge de travail importante pour les nutritionnistes. Ces derniers doivent régulièrement consulter les repas envoyés par leurs patients, analyser les informations nutritionnelles, répondre aux questions et vérifier le respect des programmes alimentaires.
+
+De leur côté, les patients peuvent rencontrer des difficultés à enregistrer leurs repas, à connaître leur composition nutritionnelle et à respecter les recommandations de leur nutritionniste.
+
+Avec l'évolution des technologies mobiles et de l'intelligence artificielle, il devient possible de faciliter ce suivi en automatisant certaines tâches, notamment l'analyse des photographies des repas et l'estimation de leurs valeurs nutritionnelles.
+
+Dans ce contexte, le projet NutriAI vise à développer une application web et mobile permettant de centraliser le suivi nutritionnel, de faciliter les échanges entre les patients et les nutritionnistes et d'intégrer un service intelligent d'analyse des repas.
+
+## 1.3. Problématique
+
+Le suivi nutritionnel traditionnel repose principalement sur des échanges manuels entre les patients et les nutritionnistes. Cette organisation peut entraîner une surcharge de travail pour les professionnels et rendre le suivi quotidien moins efficace.
+
+La problématique principale de ce projet est donc :
+
+**Comment concevoir et développer une application web et mobile intelligente permettant de faciliter le suivi nutritionnel des patients, d'automatiser l'analyse des repas à partir de photographies et de réduire la charge de travail des nutritionnistes, tout en conservant leur rôle dans la validation et l'accompagnement nutritionnel ?**
+
+## 1.4. Solution proposée
+
+La solution proposée consiste à développer une plateforme intelligente de suivi nutritionnel composée de deux applications complémentaires :
+
+- Une application mobile destinée aux patients, développée avec Flutter.
+- Une application web destinée aux nutritionnistes, développée avec Angular.
+
+La plateforme sera connectée à un backend développé avec Spring Boot et à une base de données MySQL.
+
+Un service d'intelligence artificielle développé en Python permettra d'analyser les photographies des repas, d'identifier les aliments présents et d'estimer leurs valeurs nutritionnelles.
+
+Le patient pourra ainsi enregistrer ses repas quotidiennement, consulter son programme alimentaire, suivre son historique et communiquer avec son nutritionniste.
+
+Le nutritionniste pourra gérer ses patients, créer leurs programmes alimentaires, consulter les repas enregistrés, ajouter des commentaires et suivre leur évolution grâce à des statistiques.
+
+L'intelligence artificielle interviendra comme un outil d'assistance à l'analyse nutritionnelle. Les résultats proposés pourront être vérifiés et corrigés par le nutritionniste.
+
+---
+
+# 2. Objectifs du projet
+
+## 2.1. Objectif général
+
+Développer une application web et mobile intelligente permettant d'assurer un suivi nutritionnel quotidien, de faciliter la communication entre les patients et les nutritionnistes et d'automatiser certaines tâches grâce à l'intégration de l'intelligence artificielle.
+
+## 2.2. Objectifs spécifiques
+
+Les objectifs spécifiques du projet sont les suivants :
+
+- Digitaliser le suivi nutritionnel des patients.
+- Faciliter l'enregistrement quotidien des repas.
+- Permettre l'envoi des photographies des repas au nutritionniste.
+- Intégrer un système intelligent de reconnaissance des aliments.
+- Estimer les valeurs nutritionnelles des repas.
+- Permettre aux nutritionnistes de consulter et de commenter les repas.
+- Faciliter la gestion des patients et des programmes alimentaires.
+- Centraliser les informations nutritionnelles dans une plateforme unique.
+- Permettre aux patients de consulter leur historique alimentaire.
+- Faciliter le suivi de l'activité physique des patients.
+- Fournir des statistiques permettant d'évaluer l'évolution des patients.
+- Réduire les échanges répétitifs et la charge de travail des nutritionnistes.
+
+---
+
+# 3. Identification des acteurs
+
+Le système comporte trois acteurs principaux.
+
+## 3.1. Patient
+
+Le patient est l'utilisateur qui bénéficie d'un suivi nutritionnel.
+
+Il pourra :
+
+- S'authentifier.
+- Gérer son profil.
+- Consulter son programme alimentaire.
+- Enregistrer ses repas à partir de photographies ou manuellement.
+- Consulter son historique alimentaire.
+- Communiquer avec son nutritionniste.
+- Enregistrer son activité physique.
+
+## 3.2. Nutritionniste
+
+Le nutritionniste est le professionnel chargé du suivi des patients.
+
+Il pourra :
+
+- S'authentifier.
+- Gérer ses patients.
+- Créer des programmes alimentaires personnalisés.
+- Commenter les repas enregistrés par les patients.
+- Consulter l'historique des patients.
+- Communiquer avec les patients.
+- Consulter les statistiques de suivi.
+
+## 3.3. Service IA
+
+Le service d'intelligence artificielle est un composant externe chargé de l'analyse automatique des repas.
+
+Il pourra :
+
+- Analyser les photographies des repas.
+- Identifier les aliments présents dans les images.
+- Estimer les valeurs nutritionnelles des aliments identifiés.
+- Transmettre les résultats de l'analyse au backend.
+
+Le service IA ne remplace pas le nutritionniste. Il fournit des estimations destinées à faciliter le suivi nutritionnel.
+
+---
+
+# 4. Besoins fonctionnels
+
+Les besoins fonctionnels décrivent les services que le système doit fournir à ses utilisateurs.
+
+## BF01 — Authentification
+
+Le système doit permettre aux patients et aux nutritionnistes de s'authentifier afin d'accéder aux fonctionnalités correspondant à leurs rôles.
+
+Les fonctionnalités comprennent :
+
+- La connexion.
+- La déconnexion.
+- La vérification des identifiants.
+- La gestion des sessions.
+- La protection des accès aux données personnelles.
+
+Chaque utilisateur doit accéder uniquement aux fonctionnalités et aux données qui lui sont autorisées.
+
+## BF02 — Gestion du profil
+
+Le système doit permettre au patient de gérer ses informations personnelles.
+
+Les informations du profil peuvent comprendre :
+
+- Nom et prénom.
+- Adresse électronique.
+- Date de naissance.
+- Sexe.
+- Taille.
+- Poids actuel.
+- Objectif nutritionnel.
+
+Le patient pourra consulter et modifier les informations autorisées.
+
+Le système devra également permettre au nutritionniste de gérer les informations de son profil professionnel.
+
+## BF03 — Consultation du programme alimentaire
+
+Le patient doit pouvoir consulter son programme alimentaire depuis l'application mobile.
+
+Le programme pourra contenir :
+
+- Les repas recommandés.
+- Les aliments recommandés.
+- Les quantités.
+- Les objectifs nutritionnels.
+- Les recommandations du nutritionniste.
+
+Le patient pourra consulter les repas prévus pour une journée donnée.
+
+Le programme alimentaire sera créé et géré par le nutritionniste.
+
+## BF04 — Enregistrement des repas
+
+Le système doit permettre au patient d'enregistrer ses repas quotidiennement.
+
+Deux modes d'enregistrement seront proposés.
+
+### Enregistrement à partir d'une photographie
+
+Le patient pourra :
+
+- Prendre une photographie de son repas à l'aide de la caméra.
+- Importer une photographie depuis la galerie.
+- Sélectionner le type de repas.
+- Ajouter une description.
+- Indiquer la date et l'heure.
+- Envoyer le repas au système.
+
+Les types de repas seront :
+
+- Petit-déjeuner.
+- Déjeuner.
+- Dîner.
+- Collation.
+
+### Enregistrement manuel
+
+Le patient pourra également enregistrer un repas sans photographie.
+
+Il pourra :
+
+- Rechercher les aliments consommés.
+- Ajouter les aliments au repas.
+- Indiquer les quantités en grammes.
+- Consulter les valeurs nutritionnelles associées, lorsqu'elles sont disponibles.
+- Enregistrer le repas.
+
+Les repas enregistrés seront associés au patient et à leur date de consommation.
+
+## BF05 — Analyse des photographies
+
+Lorsque le patient enregistre un repas à partir d'une photographie, le système doit permettre l'analyse automatique de l'image.
+
+Le processus comprendra :
+
+1. La réception de la photographie.
+2. La transmission de l'image au service IA.
+3. L'analyse de l'image.
+4. L'identification des aliments potentiellement présents.
+5. L'estimation des quantités lorsque cela est possible.
+6. L'estimation des valeurs nutritionnelles.
+7. L'enregistrement des résultats.
+8. La transmission des résultats au nutritionniste.
+
+Le système devra permettre au patient de consulter les résultats de l'analyse.
+
+Les estimations pourront être corrigées lorsque les aliments ou les quantités ne correspondent pas au repas réellement consommé.
+
+## BF06 — Identification des aliments
+
+Le service IA doit permettre d'identifier les aliments présents dans une photographie.
+
+Pour chaque aliment identifié, le système pourra fournir :
+
+- Le nom de l'aliment.
+- La quantité estimée, lorsque cela est possible.
+- Les informations nutritionnelles associées.
+- Le niveau de confiance du modèle, lorsque celui-ci est disponible.
+
+Les aliments identifiés seront associés au repas correspondant.
+
+Le système devra également permettre une correction manuelle des aliments identifiés.
+
+## BF07 — Estimation des valeurs nutritionnelles
+
+À partir des aliments identifiés et des quantités estimées, le système doit permettre de calculer les valeurs nutritionnelles du repas.
+
+Les valeurs nutritionnelles pourront comprendre :
+
+- Les calories.
+- Les protéines.
+- Les glucides.
+- Les lipides.
+
+Les résultats seront enregistrés dans la base de données afin de permettre leur consultation ultérieure.
+
+Les valeurs nutritionnelles seront considérées comme des estimations. Leur précision dépendra notamment de la qualité de la photographie, de l'identification des aliments et de l'estimation des portions.
+
+## BF08 — Gestion des patients
+
+Le système doit permettre au nutritionniste de gérer les patients dont il assure le suivi.
+
+Le nutritionniste pourra :
+
+- Ajouter ou inviter un patient.
+- Consulter la liste de ses patients.
+- Rechercher un patient.
+- Consulter le profil d'un patient.
+- Accéder à son historique alimentaire.
+- Consulter son programme alimentaire.
+- Consulter ses statistiques.
+
+Pour la première version du système, un patient sera associé à un nutritionniste responsable de son suivi.
+
+## BF09 — Création des programmes alimentaires
+
+Le nutritionniste doit pouvoir créer des programmes alimentaires personnalisés.
+
+Il pourra :
+
+- Sélectionner un patient.
+- Définir les objectifs nutritionnels.
+- Définir les repas recommandés.
+- Ajouter des aliments.
+- Déterminer les quantités recommandées.
+- Ajouter des commentaires et des recommandations.
+- Définir la durée du programme.
+- Modifier le programme selon l'évolution du patient.
+
+Le programme créé sera accessible au patient depuis son application mobile.
+
+## BF10 — Commentaires sur les repas
+
+Le nutritionniste doit pouvoir commenter les repas enregistrés par les patients.
+
+Il pourra :
+
+- Consulter la photographie du repas.
+- Consulter les aliments identifiés par l'IA.
+- Consulter les valeurs nutritionnelles estimées.
+- Ajouter un commentaire.
+- Fournir une recommandation.
+- Demander une correction ou une information supplémentaire.
+
+Le patient pourra consulter les commentaires depuis son application mobile.
+
+Cette fonctionnalité permettra au nutritionniste de fournir un retour personnalisé sur les repas consommés.
+
+## BF11 — Consultation de l'historique du patient
+
+Le système doit permettre au nutritionniste de consulter l'historique alimentaire de chaque patient.
+
+L'historique comprendra :
+
+- Les repas enregistrés.
+- Les dates et heures des repas.
+- Les photographies.
+- Les aliments consommés.
+- Les valeurs nutritionnelles estimées.
+- Les commentaires du nutritionniste.
+
+Le patient pourra également consulter son propre historique alimentaire.
+
+Le système devra permettre de filtrer les repas par date et par type de repas.
+
+## BF12 — Communication entre le patient et le nutritionniste
+
+Le système doit intégrer un espace de communication permettant aux patients et aux nutritionnistes d'échanger des messages.
+
+Le patient pourra :
+
+- Envoyer un message à son nutritionniste.
+- Consulter les réponses reçues.
+- Consulter l'historique des échanges.
+
+Le nutritionniste pourra :
+
+- Consulter les messages de ses patients.
+- Répondre aux demandes.
+- Consulter l'historique des conversations.
+
+Cette fonctionnalité permettra de centraliser les échanges au sein de la plateforme.
+
+## BF13 — Enregistrement de l'activité physique
+
+Le système doit permettre au patient d'enregistrer son activité physique quotidienne.
+
+Les informations pourront comprendre :
+
+- Le type d'activité physique.
+- La date.
+- La durée.
+- L'intensité.
+- Les calories dépensées estimées, lorsque cette information est disponible.
+
+Le patient pourra consulter son historique d'activité physique.
+
+Ces informations pourront être exploitées dans le cadre du suivi nutritionnel par le nutritionniste.
+
+---
+
+# 5. Besoins non fonctionnels
+
+## BNF01 — Sécurité
+
+L'application doit garantir :
+
+- Une authentification sécurisée.
+- Un contrôle d'accès basé sur les rôles.
+- La protection des API REST.
+- Le stockage sécurisé des mots de passe.
+- La protection contre les accès non autorisés.
+
+## BNF02 — Confidentialité
+
+Les informations personnelles et nutritionnelles des patients doivent être protégées.
+
+Le système doit prévoir :
+
+- La protection des photographies.
+- La limitation des accès aux données.
+- La gestion du consentement.
+- La suppression des données selon les règles définies.
+- La traçabilité des opérations importantes.
+
+## BNF03 — Performance
+
+Les opérations courantes, telles que la consultation du programme alimentaire ou de l'historique, doivent être rapides.
+
+L'analyse des photographies pourra nécessiter un temps de traitement supplémentaire.
+
+Le système devra afficher un état de traitement pendant l'analyse.
+
+## BNF04 — Ergonomie
+
+Les interfaces doivent être simples, intuitives et adaptées aux utilisateurs.
+
+L'application mobile devra être adaptée aux écrans des smartphones.
+
+L'application web devra être adaptée aux navigateurs modernes et aux différentes tailles d'écran.
+
+## BNF05 — Maintenabilité
+
+L'application doit être organisée selon une architecture modulaire permettant de faciliter la maintenance et l'évolution du système.
+
+## BNF06 — Évolutivité
+
+L'architecture doit permettre l'ajout de nouvelles fonctionnalités, notamment de nouveaux modèles d'intelligence artificielle et de nouveaux indicateurs de suivi.
+
+## BNF07 — Fiabilité de l'intelligence artificielle
+
+Les résultats de l'IA doivent être considérés comme des estimations.
+
+Le système doit permettre la correction des résultats et conserver les informations nécessaires à la traçabilité des analyses.
+
+## BNF08 — Disponibilité
+
+La plateforme doit être accessible de manière fiable aux patients et aux nutritionnistes.
+
+## BNF09 — Interopérabilité
+
+Les composants de la plateforme doivent communiquer à travers des API REST sécurisées.
+
+## BNF10 — Sauvegarde
+
+La base de données et les données nécessaires au fonctionnement de la plateforme doivent faire l'objet de sauvegardes régulières.
+
+---
+
+# 6. Architecture technique
+
+## 6.1. Technologies utilisées
+
+| Composant | Technologie | Rôle |
+|---|---|---|
+| Application web | Angular | Interface du nutritionniste |
+| Application mobile | Flutter | Interface du patient |
+| Backend | Spring Boot | Gestion de la logique métier et des API REST |
+| Base de données | MySQL | Stockage des données |
+| Intelligence artificielle | Python | Analyse des photographies |
+| API IA | FastAPI | Communication avec le service IA |
+| Communication | REST / JSON | Échange de données entre les composants |
+| Stockage des images | Stockage sécurisé de fichiers | Conservation des photographies |
+| Authentification | Spring Security | Protection des accès |
+
+## 6.2. Architecture générale
+
+L'architecture de NutriAI sera organisée en quatre couches principales.
+
+### Couche présentation
+
+Cette couche comprend :
+
+- L'application mobile Flutter destinée aux patients.
+- L'application web Angular destinée aux nutritionnistes.
+
+### Couche métier
+
+Elle sera développée avec Spring Boot.
+
+Elle assurera :
+
+- La gestion des utilisateurs.
+- La gestion des patients.
+- La gestion des programmes alimentaires.
+- La gestion des repas.
+- La gestion des commentaires.
+- La gestion des échanges entre utilisateurs.
+- La gestion de l'activité physique.
+- La communication avec le service IA.
+
+### Couche intelligence artificielle
+
+Elle sera développée en Python et exposée à travers FastAPI.
+
+Elle assurera :
+
+- La réception des photographies.
+- L'analyse des images.
+- L'identification des aliments.
+- L'estimation des valeurs nutritionnelles.
+- La transmission des résultats au backend.
+
+### Couche données
+
+Elle comprendra :
+
+- La base de données MySQL.
+- Le stockage sécurisé des photographies.
+- Les données nécessaires à l'historique alimentaire.
+- Les données des programmes nutritionnels.
+- Les informations relatives aux analyses et aux commentaires.
+
+---
+
+# 7. Scénario principal de fonctionnement
+
+Le scénario principal correspond à l'enregistrement et à l'analyse d'un repas photographié.
+
+1. Le patient se connecte à son application mobile Flutter.
+2. Il consulte son programme alimentaire.
+3. Il sélectionne la fonctionnalité d'enregistrement d'un repas.
+4. Il prend une photographie de son repas.
+5. Il sélectionne le type de repas.
+6. Il envoie la photographie.
+7. Spring Boot reçoit et enregistre le repas.
+8. Spring Boot transmet la photographie au service IA Python.
+9. Le service IA analyse l'image.
+10. Le service IA identifie les aliments présents.
+11. Le service IA estime les valeurs nutritionnelles.
+12. Les résultats sont transmis à Spring Boot.
+13. Spring Boot enregistre les résultats dans MySQL.
+14. Le nutritionniste consulte le repas depuis son application web Angular.
+15. Il examine les aliments identifiés et les valeurs nutritionnelles estimées.
+16. Il ajoute un commentaire ou une recommandation.
+17. Le patient consulte le retour du nutritionniste depuis son application mobile.
+
+Si l'analyse automatique échoue, le patient pourra enregistrer les aliments manuellement.
+
+---
+
+# 8. Règles de gestion
+
+Les règles de gestion suivantes devront être respectées :
+
+**RG01 :** Un utilisateur doit être authentifié pour accéder aux fonctionnalités privées.
+
+**RG02 :** Un patient ne peut consulter que ses propres données nutritionnelles.
+
+**RG03 :** Un nutritionniste ne peut consulter que les patients qui lui sont autorisés.
+
+**RG04 :** Chaque repas doit être associé à un patient.
+
+**RG05 :** Un repas peut être enregistré à partir d'une photographie ou manuellement.
+
+**RG06 :** L'analyse automatique est déclenchée lorsqu'un repas est enregistré à partir d'une photographie.
+
+**RG07 :** Chaque analyse IA doit être associée au repas analysé.
+
+**RG08 :** Les aliments identifiés et les valeurs nutritionnelles estimées doivent être enregistrés.
+
+**RG09 :** Les résultats de l'IA doivent être considérés comme des estimations.
+
+**RG10 :** Le nutritionniste doit pouvoir consulter les résultats de l'analyse et ajouter des commentaires.
+
+**RG11 :** Les commentaires du nutritionniste doivent être accessibles au patient concerné.
+
+**RG12 :** Chaque programme alimentaire doit être associé à un patient.
+
+**RG13 :** Un programme alimentaire est créé et géré par un nutritionniste autorisé.
+
+**RG14 :** Les données d'activité physique doivent être associées au patient concerné.
+
+**RG15 :** Les communications entre patients et nutritionnistes doivent être privées.
+
+**RG16 :** Les modifications importantes des données nutritionnelles doivent être traçables.
+
+---
+
+# 9. Périmètre du projet
+
+## 9.1. Fonctionnalités principales
+
+La première version de NutriAI comprendra :
+
+- Authentification des utilisateurs.
+- Gestion des profils.
+- Gestion des patients.
+- Consultation des programmes alimentaires.
+- Création des programmes alimentaires.
+- Enregistrement des repas par photographie ou manuellement.
+- Analyse des photographies.
+- Identification des aliments.
+- Estimation des valeurs nutritionnelles.
+- Commentaires sur les repas.
+- Consultation de l'historique.
+- Communication entre patients et nutritionnistes.
+- Enregistrement de l'activité physique.
+- Consultation des statistiques.
+
+## 9.2. Fonctionnalités exclues du périmètre initial
+
+Afin de limiter la complexité du projet, les fonctionnalités suivantes ne sont pas prévues dans la première version :
+
+- Gestion d'un assistant conversationnel autonome.
+- Génération automatique de programmes alimentaires.
+- Diagnostic médical.
+- Prescription automatique de recommandations thérapeutiques.
+- Intégration avec des objets connectés.
+- Gestion de paiements en ligne.
+- Gestion de rendez-vous.
+
+Ces fonctionnalités pourront éventuellement être ajoutées dans une version future.
+
+---
+
+# 10. Interfaces à développer
+
+## 10.1. Application mobile Flutter — Patient
+
+Les principales interfaces seront :
+
+1. Écran de connexion.
+2. Écran de gestion du profil.
+3. Tableau de bord.
+4. Consultation du programme alimentaire.
+5. Enregistrement d'un repas.
+6. Prise de photographie.
+7. Saisie manuelle des aliments.
+8. Consultation des résultats de l'analyse.
+9. Historique alimentaire.
+10. Consultation des commentaires du nutritionniste.
+11. Espace de communication.
+12. Enregistrement de l'activité physique.
+13. Consultation des statistiques personnelles.
+
+## 10.2. Application web Angular — Nutritionniste
+
+Les principales interfaces seront :
+
+1. Écran de connexion.
+2. Gestion du profil.
+3. Tableau de bord.
+4. Gestion des patients.
+5. Consultation du profil d'un patient.
+6. Création et modification des programmes alimentaires.
+7. Consultation des repas.
+8. Consultation des résultats de l'analyse IA.
+9. Ajout de commentaires sur les repas.
+10. Consultation de l'historique des patients.
+11. Espace de communication.
+12. Consultation des statistiques.
+
+---
+
+# 11. Planification prévisionnelle
+
+Le développement du projet sera organisé en plusieurs phases.
+
+| Phase | Activités |
+|---|---|
+| Phase 1 | Analyse des besoins et rédaction du cahier des charges |
+| Phase 2 | Conception UML et conception de la base de données |
+| Phase 3 | Configuration de l'environnement de développement |
+| Phase 4 | Développement du backend Spring Boot |
+| Phase 5 | Développement de l'application web Angular |
+| Phase 6 | Développement de l'application mobile Flutter |
+| Phase 7 | Développement du service IA Python |
+| Phase 8 | Intégration des composants |
+| Phase 9 | Tests fonctionnels et techniques |
+| Phase 10 | Déploiement et rédaction du rapport final |
+
+La planification détaillée sera définie en fonction de la durée du projet et des objectifs fixés avec l'encadrant.
+
+---
+
+# 12. Résultats attendus
+
+À la fin du projet, NutriAI devra permettre :
+
+- Aux patients d'enregistrer leurs repas quotidiennement.
+- Aux patients de consulter leur programme alimentaire.
+- Aux patients de suivre leur historique nutritionnel et leur activité physique.
+- Aux nutritionnistes de gérer leurs patients.
+- Aux nutritionnistes de créer des programmes alimentaires personnalisés.
+- Aux nutritionnistes de consulter et commenter les repas.
+- À l'intelligence artificielle d'identifier les aliments à partir de photographies.
+- À l'intelligence artificielle d'estimer les valeurs nutritionnelles des repas.
+- Aux patients et aux nutritionnistes de communiquer à travers une plateforme unique.
+- De faciliter le suivi nutritionnel quotidien.
+- De réduire les tâches répétitives des nutritionnistes.
+
+Le projet devra aboutir à une application web et mobile fonctionnelle, sécurisée, évolutive et intégrant des fonctionnalités d'intelligence artificielle.
+
+---
+
+# 13. Conclusion
+
+Le projet NutriAI consiste à concevoir et développer une plateforme intelligente de suivi nutritionnel destinée aux patients et aux nutritionnistes.
+
+Grâce à l'intégration de Flutter, Angular, Spring Boot, MySQL et Python, la solution permettra de centraliser les informations nutritionnelles, de faciliter le suivi quotidien des patients et d'automatiser l'analyse des repas à partir de photographies.
+
+Les patients pourront enregistrer leurs repas, consulter leur programme alimentaire, suivre leur activité physique et communiquer avec leur nutritionniste.
+
+Les nutritionnistes pourront gérer leurs patients, créer des programmes alimentaires, consulter les repas enregistrés, ajouter des commentaires et analyser les statistiques de suivi.
+
+L'intelligence artificielle interviendra dans l'identification des aliments et l'estimation des valeurs nutritionnelles, tout en conservant le nutritionniste comme acteur principal du suivi professionnel.
+
+Ce projet présente ainsi un intérêt technique et fonctionnel en combinant le développement web, le développement mobile et l'intelligence artificielle au service de la nutrition.
